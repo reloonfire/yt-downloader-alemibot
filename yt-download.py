@@ -22,12 +22,16 @@ HELP = HelpCategory("Youtube Utilities")
 HELP.add_help(["yt-download", "yt"], "Download video from YT", "Download audio in mp3 from a valid youtube link video :D",args="<link>")
 @alemiBot.on_message(is_superuser & filterCommand(["yt-download", "yt"], list(alemiBot.prefixes)))
 async def yt_download(client, message):
+    args = ""
     if "arg" not in message.command:
-        return await edit_or_reply(message, "`[!] → ` No link provided")
-
+        if message.reply_to_message is not None:
+            args = message.reply_to_message.text
+        else:
+            return await edit_or_reply(message, "`[!] → ` No link provided")
+    else:
+        args = message.command["arg"]
     msg = await edit_or_reply(message, "` → ` Downloading...")
     try:
-        args = message.command["arg"]
         logger.info(f"Downloading video → \"{args}\"")
         proc = await asyncio.create_subprocess_shell(
             "youtube-dl --extract-audio --audio-format mp3 " + args,
