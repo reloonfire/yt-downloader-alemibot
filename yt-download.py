@@ -43,9 +43,9 @@ async def yt_download(client, message):
             await client.send_audio(message.chat.id, filename, caption=f'` → {filename}`')
             os.remove(filename)
         else:
-            await msg.edit_or_reply(f"`$ yt-down`\n`[!] → ` something wrong happen, probably you send an invalid url.")
+            await edit_or_reply(msg, f"`$ yt-down`\n`[!] → ` something wrong happen, probably you send an invalid url.")
         
     except Exception as e:
         traceback.print_exc()
-        await msg.edit_or_reply(f"`$ yt-down`\n`[!] → ` " + str(e))
+        await edit_or_reply(msg, f"`$ yt-down`\n`[!] → ` " + str(e))
 
