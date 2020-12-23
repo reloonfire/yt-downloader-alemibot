@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 HELP = HelpCategory("Youtube Utilities")
 
-HELP.add_help(["yt-download", "yt"], "Download video from YT", "Download audio in mp3 from a valid youtube link video :D",args="<link>")
+HELP.add_help(["yt-download", "yt"], "Download audio from YT!", "Download audio in mp3 from a valid youtube link video :D. You can reply to a valid link to download or use .yt <link>",args="<link>")
 @alemiBot.on_message(is_superuser & filterCommand(["yt-download", "yt"], list(alemiBot.prefixes)))
 async def yt_download(client, message):
     args = ""
