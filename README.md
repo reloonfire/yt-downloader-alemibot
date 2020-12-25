@@ -14,5 +14,9 @@ Plugin for alemibot to download music from youtube
    ```bash
      git submodule add https://github.com/reloonfire/yt-downloader-alemibot.git plugins/yt-downloader
   ```
+  OR via [plugin_manager](https://github.com/reloonfire/plugin-adder-alemibot)
+  ```
+    .plugin_add -d yt_downloader https://github.com/reloonfire/yt-downloader-alemibot.git
+  ```
   and just restart the bot :D
   
